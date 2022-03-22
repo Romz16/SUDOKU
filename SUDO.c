@@ -65,7 +65,7 @@ void Instrucoes()
     printf("- Resolver o jogo todo -> resolver\n");
 }
 
-void TabuleiroInicializa(char nomeArq){
+void TabuleiroInicializa(char *nomeArq){
     int tabela[TAM][TAM];
     FILE *arq = fopen(nomeArq,"r");
     for (int i = 0; i < TAM; i++)
