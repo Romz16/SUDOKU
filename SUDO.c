@@ -197,7 +197,7 @@ void printPuzzle(int** puzzle){
     printf(" Y\n");
 }
 
-void Jogo(int** userPuzzle, int** tempPuzzle){
+void Jogo(int** userPuzzle, int** tempPuzzle,int **Puzzle){
     int i, j;
     int posX, posY, userVal;
 
@@ -218,9 +218,9 @@ void Jogo(int** userPuzzle, int** tempPuzzle){
         }
         else if ((posX==0) || (posY==0))
         {   getchar();
-            Resolver(userPuzzle);
+            Resolver(Puzzle);
             printf("\n PUZZLE RESOLVIDO:\n");
-            printPuzzle(userPuzzle);
+            printPuzzle(Puzzle);
             return;
         }
         
@@ -240,7 +240,8 @@ void Jogo(int** userPuzzle, int** tempPuzzle){
             printf("\nvalor invalido, tente novamente :\n");
             scanf("%d", &userVal);
         }
-        else break;
+        else
+             break;
     }
 
     if(Ehvalido(userPuzzle, posY, posX, userVal))
@@ -284,7 +285,7 @@ void NovoJogo()
     int** userPuzzle = copiaPuzzle(puzzle);
     int** tempPuzzle = copiaPuzzle(puzzle);
     printPuzzle(userPuzzle);
-    Jogo(userPuzzle,tempPuzzle);
+    Jogo(userPuzzle,tempPuzzle,puzzle);
     free(puzzle);
     free(userPuzzle);
     free(tempPuzzle);
